@@ -1,0 +1,30 @@
+{
+  "name": "built_homes",
+  "version": "1.0.0",
+  "description": "a house building application",
+  "main": "server.js",
+  "scripts": {
+    "dev": "nodemon server.js",
+    "prod": "nodemon server.js"
+  },
+  "keywords": [
+    "buider",
+    "app"
+  ],
+  "author": "nitin",
+  "license": "ISC",
+  "dependencies": {
+    "aws-sdk": "^2.1308.0",
+    "bcrypt": "^5.1.0",
+    "cors": "^2.8.5",
+    "crypto": "^1.0.1",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.0",
+    "mongoose": "^6.9.0",
+    "multer": "^1.4.5-lts.1",
+    "multer-s3": "^3.0.1",
+    "nodemailer": "^6.9.1",
+    "nodemon": "^2.0.20",
+    "winston": "^3.8.2"
+  }
+}

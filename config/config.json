@@ -1,0 +1,34 @@
+{
+  "development": {
+    "config_id": "development",
+    "node_port": 5000,
+    "json_indentation": 4,
+    "user_name": "antinonitin",
+    "database": "built_homes",
+    "password": "nitin",
+    "jwtSecretKey": "antino",
+    "db_URL": "http://localhost:5000/api/",
+    "nodemailer_mail": "shikha1081998@gmail.com",
+    "nodemailer_password": "vwlxuktqpfwzyzqp",
+    "nodemailer_service": "gmail"
+ 
+  },
+  "staging": {
+    "config_id": "staging",
+    "node_port": 1859,
+    "json_indentation": 4,
+    "host": "localhost",
+    "database": "newProject-stag",
+    "nodemailer": {
+      "user": "shikha1081998@gmail.com",
+      "pass": "vwlxuktqpfwzyzqp"
+    }
+  },
+  "production": {
+    "config_id": "production",
+    "node_port": 1838,
+    "database": "newProject-pro",
+    "host": "localhost"
+  }
+}
+
