@@ -13,15 +13,15 @@ var requestModel = new schema(
     property_number: {
       type: String,
       unique: true,
-      required: true,
+      // required: true,
     },
     property_size: {
       type: String,
-      required: true,
+      // required: true,
     },
     floor_requirement: {
       type: String,
-      required: true,
+      // required: true,
     },
 
     additional_details: {

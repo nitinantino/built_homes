@@ -26,6 +26,7 @@ module.exports = {
 
   createRequest: async (req, res) => {
     try {
+      console.log("rrrrr>>>", req.user);
       if (req.user.role === "BUILDER") {
         throw new appError(
           ErrorMessage.USER_NOT_AUTHORISED,
@@ -48,7 +49,6 @@ module.exports = {
           ErrorCode.NOT_FOUND
         );
       }
-
       const propertyData = await Request.create({
         clientId: req.user._id,
         property_number,
