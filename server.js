@@ -1,5 +1,6 @@
 const express = require("express");
 const app = express();
+require("dotenv").config();
 
 const config = require("./config/config.json");
 //const db = require("./src/common/db/database");
@@ -19,13 +20,13 @@ app.use("/api", apiLogger, index);
 
 app.all("*", (req, res, next) => {
   throw new appError(
-    `Requested URL http://localhost:${global.gConfig.node_port}${req.path} not found!`,
+    `Requested URL http://localhost:${process.env.PORT}${req.path} not found!`,
     404
   );
 });
 
 app.use(errorController);
 
-app.listen(global.gConfig.node_port, function () {
-  console.log("Server is listening on", global.gConfig.node_port);
+app.listen(process.env.PORT, function () {
+  console.log("Server is listening on", process.env.PORT);
 });

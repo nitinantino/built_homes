@@ -145,18 +145,20 @@ module.exports = {
         );
       }
       const temporaryPass = randomPassword();
+
+      const html = `<h1> here is your temporary password </h1><p>${temporaryPass}</p>`;
+      await sendMail(
+        process.env.NODEMAILER_MAIL,
+        email,
+        SuccessMessage.FORGET_SUCCESS,
+        html
+      );
+
       const temporaryHash = generateHash(temporaryPass);
       const updatedUserPass = await User.updateOne(
         { email },
         { password: temporaryHash },
         { new: true }
-      );
-      const html = `<h1> here is your temporary password </h1><p>${temporaryPass}</p>`;
-      await sendMail(
-        global.gConfig.nodemailer_mail,
-        email,
-        SuccessMessage.FORGET_SUCCESS,
-        html
       );
 
       helper.sendResponseWithoutData(
@@ -172,24 +174,57 @@ module.exports = {
 
   // *****************************reset password api*************************************//
 
-  resetPassword: async (req, res) => {
+  // resetPassword: async (req, res) => {
+  //   try {
+  //     const { temporaryPass, newPass } = req.body;
+  //     const passVerify = await User.findOne({ password: temporaryPass });
+  //     if (!passVerify) {
+  //       throw new appError(ErrorMessage.DATA_NOT_FOUND, ErrorCode.NOT_FOUND);
+  //     }
+
+  //     const newPassword = await User.findOneAndUpdate(
+  //       { email: passVerify.email },
+  //       { password: newPass },
+  //       { new: true }
+  //     );
+
+  //     helper.sendResponseWithoutData(
+  //       res,
+  //       SuccessCode.SUCCESS,
+  //       SuccessMessage.PASSWORD_RESET_SUCCESSFUL,
+  //       newPassword
+  //     );
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // },
+
+  // *****************************change user  password api*************************************//
+
+  changePassword: async (req, res) => {
     try {
-      const { temporaryPass, newPass } = req.body;
-      const passVerify = await User.findOne({ password: temporaryPass });
-      if (!passVerify) {
-        throw new appError(ErrorMessage.DATA_NOT_FOUND, ErrorCode.NOT_FOUND);
+      const { oldPass, newPass } = req.body;
+      const userVerify = await User.findById(req.user._id);
+      const verified = compareHash(oldPass, userVerify.password);
+      if (!verified) {
+        throw new appError(
+          ErrorMessage.PASSWORD_NOT_MATCHED,
+          ErrorCode.NOT_FOUND
+        );
       }
 
+      const newPasswordHash = generateHash(newPass);
+
       const newPassword = await User.findOneAndUpdate(
-        { email: passVerify.email },
-        { password: newPass },
+        { email: userVerify.email },
+        { password: newPasswordHash },
         { new: true }
       );
 
       helper.sendResponseWithoutData(
         res,
         SuccessCode.SUCCESS,
-        SuccessMessage.PASSWORD_RESET_SUCCESSFUL,
+        SuccessMessage.PASSWORD_CHANGE_SUCCESSFUL,
         newPassword
       );
     } catch (error) {
@@ -203,7 +238,7 @@ module.exports = {
     try {
       const payload = req.body;
 
-      const { first_name, last_name, email, password, mobile_number } = payload;
+      const { first_name, last_name, email, mobile_number } = payload;
 
       let update = await User.findByIdAndUpdate(
         { _id: req.user.id },

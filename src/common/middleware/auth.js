@@ -1,7 +1,6 @@
 const { ErrorMessage } = require("../message");
 const { ErrorCode } = require("../errorHandlers/errorController");
 const userModel = require("../../modules/user/models/user.model");
-// const enums = require("../helper/enum/enums");
 const jwt = require("jsonwebtoken");
 const appError = require("../errorHandlers/errorHandler");
 
@@ -21,7 +20,7 @@ exports.verifyToken = async (req, res, next) => {
 
   const idToken = req.headers.authorization.split("Bearer ")[1];
   try {
-    const decodedToken = jwt.verify(idToken, global.gConfig.jwtSecretKey);
+    const decodedToken = jwt.verify(idToken, process.env.JWTKEY);
     if (!decodedToken) return res.error.Unauthorized("Invalid Auth Token");
     const user = await userModel.findById(decodedToken.id);
     if (!user)

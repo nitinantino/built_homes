@@ -263,3 +263,12 @@ Feb-10-2023 17:40:33 [info] http://localhost:5000/api/request/createQuotation - 
 Feb-10-2023 17:41:04 [info] http://localhost:5000/api/request/responseToQuotation?quotationId=63e634391e1a22ebe8186d6f - POST METHOD  
 Feb-10-2023 17:42:13 [info] http://localhost:5000/api/request/listAllQuotation?requestId=63e633311e1a22ebe8186d60 - GET METHOD  
 Feb-10-2023 17:42:35 [info] http://localhost:5000/api/request/listRequest - GET METHOD  
+Feb-13-2023 11:12:52 [info] http://localhost:5000/api/user/login - POST METHOD  
+Feb-13-2023 11:13:57 [info] http://localhost:5000/api/user/changePassword - GET METHOD  
+Feb-13-2023 11:13:57 [error] 404 - Requested URL http://localhost:5000/api/user/changePassword not found! 
+Feb-13-2023 11:14:05 [info] http://localhost:5000/api/user/changePassword - POST METHOD  
+Feb-13-2023 11:14:35 [info] http://localhost:5000/api/user/login - POST METHOD  
+Feb-13-2023 11:14:56 [info] http://localhost:5000/api/user/login - POST METHOD  
+Feb-13-2023 12:04:35 [info] http://localhost:5000/api/user/signup - POST METHOD  
+Feb-13-2023 12:05:53 [info] http://localhost:5000/api/user/signup - POST METHOD  
+Feb-13-2023 12:06:32 [info] http://localhost:5000/api/user/forgetPassword - POST METHOD  

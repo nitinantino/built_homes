@@ -20,6 +20,7 @@ module.exports = {
       commentCount: no_of_comments || null,
     });
   },
+
   sendResponseWithData: (
     responseObj,
     responseCode,

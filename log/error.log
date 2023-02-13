@@ -40,3 +40,4 @@ Feb-09-2023 13:22:37 [error] 404 - Requested URL http://localhost:5000/api/admin
 Feb-09-2023 14:05:01 [error] 404 - Requested URL http://localhost:5000/api/user/resetPassword not found! 
 Feb-09-2023 14:05:59 [error] 404 - Requested URL http://localhost:5000/api/user/resetPassword not found! 
 Feb-09-2023 14:07:07 [error] 404 - Requested URL http://localhost:5000/api/user/resetPassword not found! 
+Feb-13-2023 11:13:57 [error] 404 - Requested URL http://localhost:5000/api/user/changePassword not found! 

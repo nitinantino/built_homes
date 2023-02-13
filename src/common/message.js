@@ -11,6 +11,7 @@ module.exports.ErrorMessage = Object.freeze({
   USER_NOT_AUTHORISED: "this user is not authorised to add data",
   QUOTATION_NOT_FOUND: "this quotation is not found ",
   EMAIL_NOT_REGISTERED: "this email is not registered ",
+  PASSWORD_NOT_MATCHED: "password is not matched",
 });
 
 module.exports.SuccessMessage = Object.freeze({
@@ -21,5 +22,7 @@ module.exports.SuccessMessage = Object.freeze({
   FORGET_SUCCESS: "forget password request successful",
   EMAIL_SEND: "email sent succesfully",
   PASSWORD_RESET_SUCCESSFUL: "your password reset is successful",
+  PASSWORD_CHANGE_SUCCESSFUL: "your password reset is successful",
+
   PROFILE_DETAILS: "profile details updated succesfully",
 });
